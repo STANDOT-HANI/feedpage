@@ -733,11 +733,11 @@ img {
 
   .feed-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 30px;
   }
 
   .feed-column {
-    gap: 16px;
+    gap: 30px;
   }
 
   .card-overlay {
