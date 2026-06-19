@@ -3,6 +3,8 @@ const feedCards = [...document.querySelectorAll(".feed-card")].sort(
 );
 const feedColumns = [...document.querySelectorAll(".feed-column")];
 const filterButtons = [...document.querySelectorAll(".feed-filter-button")];
+const siteHeader = document.querySelector(".site-header");
+const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
 
 document.documentElement.classList.add("reveal-ready");
 
@@ -109,4 +111,18 @@ window.addEventListener("resize", () => {
   resizeTimer = window.setTimeout(() => {
     if (currentColumnCount !== getColumnCount()) applyFilter(activeFilter);
   }, 140);
+});
+
+mobileMenuToggle?.addEventListener("click", () => {
+  const isOpen = siteHeader.classList.toggle("is-menu-open");
+  mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+  mobileMenuToggle.setAttribute("aria-label", isOpen ? "메뉴 닫기" : "메뉴 열기");
+});
+
+document.querySelectorAll(".primary-nav a").forEach((link) => {
+  link.addEventListener("click", () => {
+    siteHeader.classList.remove("is-menu-open");
+    mobileMenuToggle?.setAttribute("aria-expanded", "false");
+    mobileMenuToggle?.setAttribute("aria-label", "메뉴 열기");
+  });
 });
