@@ -38,59 +38,65 @@
       </section>
 
       <section class="feed-section" id="feed" aria-label="KOD feed cards">
+        <div class="feed-filter" role="tablist" aria-label="피드 카테고리">
+          <button class="feed-filter-button is-active" type="button" role="tab" aria-selected="true" data-filter="all">ALL</button>
+          <button class="feed-filter-button" type="button" role="tab" aria-selected="false" data-filter="campaign">CAMPAIGN</button>
+          <button class="feed-filter-button" type="button" role="tab" aria-selected="false" data-filter="content">CONTENT</button>
+          <button class="feed-filter-button" type="button" role="tab" aria-selected="false" data-filter="event">EVENT</button>
+        </div>
         <div class="feed-grid">
           <div class="feed-column">
-            <article class="feed-card" tabindex="0">
+            <article class="feed-card" tabindex="0" data-category="campaign" data-order="1">
               <img src="assets/feed/feed-01.png" alt="126주년 활명수 병과 패키지" />
               <div class="card-overlay"><div class="feed-date"><span>2024.10</span><strong>17</strong></div><h2>활명수 117주년 한정판 공개</h2><span class="feed-arrow" aria-hidden="true"></span></div>
             </article>
-            <article class="feed-card" tabindex="0">
+            <article class="feed-card" tabindex="0" data-category="event" data-order="4">
               <img src="assets/feed/feed-03.png" alt="WHAL MYUNG 화장품 매대" />
               <div class="card-overlay"><div class="feed-date"><span>2024.08</span><strong>28</strong></div><h2>WHAL MYUNG 팝업 스토어 오픈</h2><span class="feed-arrow" aria-hidden="true"></span></div>
             </article>
-            <article class="feed-card" tabindex="0">
+            <article class="feed-card" tabindex="0" data-category="content" data-order="7">
               <img src="assets/feed/feed-05.png" alt="활짝정 제품 패키지" />
               <div class="card-overlay"><div class="feed-date"><span>2024.06</span><strong>03</strong></div><h2>일상에 더 가까운 활짝정 출시</h2><span class="feed-arrow" aria-hidden="true"></span></div>
             </article>
-            <article class="feed-card" tabindex="0">
+            <article class="feed-card" tabindex="0" data-category="campaign" data-order="10">
               <img src="assets/feed/feed-07.png" alt="플리츠마마 협업 활명수 병과 패키지" />
               <div class="card-overlay"><div class="feed-date"><span>2024.04</span><strong>19</strong></div><h2>PLEATS MAMA 컬래버레이션</h2><span class="feed-arrow" aria-hidden="true"></span></div>
             </article>
           </div>
 
           <div class="feed-column">
-            <article class="feed-card" tabindex="0">
+            <article class="feed-card" tabindex="0" data-category="content" data-order="2">
               <img src="assets/feed/feed-02.png" alt="민강 책 패키지" />
               <div class="card-overlay"><div class="feed-date"><span>2024.09</span><strong>12</strong></div><h2>민강의 기록을 새롭게 만나다</h2><span class="feed-arrow" aria-hidden="true"></span></div>
             </article>
-            <article class="feed-card" tabindex="0">
+            <article class="feed-card" tabindex="0" data-category="content" data-order="5">
               <img src="assets/feed/feed-04.png" alt="동화약품 125년 광고북 표지" />
               <div class="card-overlay"><div class="feed-date"><span>2024.07</span><strong>25</strong></div><h2>동화약품 125년 광고북</h2><span class="feed-arrow" aria-hidden="true"></span></div>
             </article>
-            <article class="feed-card" tabindex="0">
+            <article class="feed-card" tabindex="0" data-category="content" data-order="8">
               <img src="assets/feed/feed-06.png" alt="활명수유 액상 제품" />
               <div class="card-overlay"><div class="feed-date"><span>2024.05</span><strong>14</strong></div><h2>활명수유 스틱형 패키지</h2><span class="feed-arrow" aria-hidden="true"></span></div>
             </article>
-            <article class="feed-card" tabindex="0">
+            <article class="feed-card" tabindex="0" data-category="campaign" data-order="11">
               <img src="assets/feed/feed-08.png" alt="모나미 협업 활명수 병과 패키지" />
               <div class="card-overlay"><div class="feed-date"><span>2024.03</span><strong>08</strong></div><h2>MONAMI와 함께한 한정판</h2><span class="feed-arrow" aria-hidden="true"></span></div>
             </article>
           </div>
 
           <div class="feed-column">
-            <article class="feed-card" tabindex="0">
+            <article class="feed-card" tabindex="0" data-category="event" data-order="3">
               <img src="assets/feed/feed-09.png" alt="125주년 활명수 병과 원통 패키지" />
               <div class="card-overlay"><div class="feed-date"><span>2024.09</span><strong>30</strong></div><h2>125주년 기념 에디션</h2><span class="feed-arrow" aria-hidden="true"></span></div>
             </article>
-            <article class="feed-card" tabindex="0">
+            <article class="feed-card" tabindex="0" data-category="content" data-order="6">
               <img src="assets/feed/feed-10.png" alt="캐릭터 라벨이 적용된 활명수 병 네 개" />
               <div class="card-overlay"><div class="feed-date"><span>2024.07</span><strong>02</strong></div><h2>캐릭터 라벨 스페셜 라인업</h2><span class="feed-arrow" aria-hidden="true"></span></div>
             </article>
-            <article class="feed-card" tabindex="0">
+            <article class="feed-card" tabindex="0" data-category="event" data-order="9">
               <img src="assets/feed/feed-11.png" alt="WHAL MYUNG 매장 외관" />
               <div class="card-overlay"><div class="feed-date"><span>2024.05</span><strong>27</strong></div><h2>성수에서 만나는 WHAL MYUNG</h2><span class="feed-arrow" aria-hidden="true"></span></div>
             </article>
-            <article class="feed-card" tabindex="0">
+            <article class="feed-card" tabindex="0" data-category="campaign" data-order="12">
               <img src="assets/feed/feed-12.png" alt="FILA 협업 활명수 병과 패키지" />
               <div class="card-overlay"><div class="feed-date"><span>2024.02</span><strong>15</strong></div><h2>FILA 헤리티지 컬래버레이션</h2><span class="feed-arrow" aria-hidden="true"></span></div>
             </article>
