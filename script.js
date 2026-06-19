@@ -1,7 +1,6 @@
 const feedCards = [...document.querySelectorAll(".feed-card")].sort(
   (cardA, cardB) => Number(cardA.dataset.order) - Number(cardB.dataset.order),
 );
-const feedColumns = [...document.querySelectorAll(".feed-column")];
 const filterButtons = [...document.querySelectorAll(".feed-filter-button")];
 const siteHeader = document.querySelector(".site-header");
 const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
@@ -59,28 +58,14 @@ const applyFilter = (filter) => {
     button.setAttribute("aria-selected", String(isActive));
   });
 
-  feedColumns.forEach((column, index) => {
-    column.hidden = index >= currentColumnCount;
-  });
-
   feedCards.forEach((card) => {
     cardObserver?.unobserve(card);
     card.classList.remove("is-visible");
-    card.hidden = true;
+    card.hidden = filter !== "all" && card.dataset.category !== filter;
+    card.style.order = card.dataset.order;
   });
 
-  const matchingCards = feedCards.filter(
-    (card) => filter === "all" || card.dataset.category === filter,
-  );
-
-  matchingCards.forEach((card, index) => {
-    card.hidden = false;
-    feedColumns[index % currentColumnCount].append(card);
-  });
-
-  feedCards
-    .filter((card) => card.hidden)
-    .forEach((card) => feedColumns[0].append(card));
+  const matchingCards = feedCards.filter((card) => !card.hidden);
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => observeCards(matchingCards));

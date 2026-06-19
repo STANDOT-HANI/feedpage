@@ -190,13 +190,11 @@ img {
   transition: background-color 220ms ease;
 }
 
-.hero-media:hover img,
-.hero-media:focus-visible img {
+.hero-media:hover img {
   transform: scale(1.025);
 }
 
-.hero-media:hover .hero-overlay,
-.hero-media:focus-visible .hero-overlay {
+.hero-media:hover .hero-overlay {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -221,9 +219,7 @@ img {
 }
 
 .hero-media:hover .hero-category,
-.hero-media:focus-visible .hero-category,
-.feed-card:hover::before,
-.feed-card:focus-visible::before {
+.feed-card:hover::before {
   background: var(--white);
   color: #000000;
 }
@@ -317,9 +313,7 @@ img {
 }
 
 .feed-column {
-  display: flex;
-  flex-direction: column;
-  gap: var(--feed-gap);
+  display: contents;
 }
 
 .feed-column[hidden] {
@@ -386,13 +380,11 @@ img {
   transition: background-color 220ms ease;
 }
 
-.feed-card:hover img,
-.feed-card:focus-visible img {
+.feed-card:hover img {
   transform: scale(1.025);
 }
 
-.feed-card:hover .card-overlay,
-.feed-card:focus-visible .card-overlay {
+.feed-card:hover .card-overlay {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
