@@ -183,12 +183,10 @@ img {
   inset: 0;
   z-index: 1;
   color: var(--white);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.18) 0%,
-    rgba(0, 0, 0, 0.02) 44%,
-    rgba(0, 0, 0, 0.66) 100%
-  );
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 32%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0) 42%);
+  background-color: transparent;
   transition: background-color 220ms ease;
 }
 
@@ -199,7 +197,7 @@ img {
 
 .hero-media:hover .hero-overlay,
 .hero-media:focus-visible .hero-overlay {
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .hero-category,
@@ -380,12 +378,10 @@ img {
   justify-content: flex-end;
   padding: 27px 28px 32px;
   color: var(--white);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.18) 0%,
-    rgba(0, 0, 0, 0.03) 42%,
-    rgba(0, 0, 0, 0.82) 100%
-  );
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 32%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 44%);
+  background-color: transparent;
   opacity: 1;
   transition: background-color 220ms ease;
 }
@@ -397,7 +393,7 @@ img {
 
 .feed-card:hover .card-overlay,
 .feed-card:focus-visible .card-overlay {
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .feed-date {
