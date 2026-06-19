@@ -426,6 +426,10 @@ img {
   word-break: keep-all;
 }
 
+.feed-view-more {
+  display: none;
+}
+
 .hero-arrow {
   right: 31px;
   bottom: 31px;
@@ -771,6 +775,37 @@ img {
   .feed-card img {
     height: auto;
     object-fit: initial;
+  }
+
+  .feed-view-more {
+    position: relative;
+    width: max-content;
+    margin: 48px auto 0;
+    display: block;
+    padding: 0 0 14px;
+    border: 0;
+    background: transparent;
+    color: var(--white);
+    font: inherit;
+    font-size: 10px;
+    font-weight: 850;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .feed-view-more::after {
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    width: 80px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.72);
+    content: "";
+    transform: translateX(50%);
+  }
+
+  .feed-view-more[hidden] {
+    display: none;
   }
 
   .feed-arrow {

@@ -4,6 +4,7 @@ const feedCards = [...document.querySelectorAll(".feed-card")].sort(
 const filterButtons = [...document.querySelectorAll(".feed-filter-button")];
 const siteHeader = document.querySelector(".site-header");
 const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+const viewMoreButton = document.querySelector(".feed-view-more");
 
 document.documentElement.classList.add("reveal-ready");
 
@@ -11,6 +12,7 @@ let activeFilter = "all";
 let cardObserver;
 let currentColumnCount = 3;
 let resizeTimer;
+let isMobileExpanded = false;
 
 const getColumnCount = () => {
   if (window.matchMedia("(max-width: 760px)").matches) return 1;
@@ -49,6 +51,7 @@ if ("IntersectionObserver" in window) {
 }
 
 const applyFilter = (filter) => {
+  if (filter !== activeFilter) isMobileExpanded = false;
   activeFilter = filter;
   currentColumnCount = getColumnCount();
 
@@ -58,14 +61,28 @@ const applyFilter = (filter) => {
     button.setAttribute("aria-selected", String(isActive));
   });
 
+  const filteredCards = feedCards.filter(
+    (card) => filter === "all" || card.dataset.category === filter,
+  );
+  const displayedCards =
+    currentColumnCount === 1 && !isMobileExpanded
+      ? filteredCards.slice(0, 4)
+      : filteredCards;
+
   feedCards.forEach((card) => {
     cardObserver?.unobserve(card);
     card.classList.remove("is-visible");
-    card.hidden = filter !== "all" && card.dataset.category !== filter;
+    card.hidden = !displayedCards.includes(card);
     card.style.order = card.dataset.order;
   });
 
-  const matchingCards = feedCards.filter((card) => !card.hidden);
+  const matchingCards = displayedCards;
+
+  if (viewMoreButton) {
+    const canExpand = currentColumnCount === 1 && filteredCards.length > 4;
+    viewMoreButton.hidden = !canExpand || isMobileExpanded;
+    viewMoreButton.setAttribute("aria-expanded", String(isMobileExpanded));
+  }
 
   requestAnimationFrame(() => {
     requestAnimationFrame(() => observeCards(matchingCards));
@@ -74,6 +91,7 @@ const applyFilter = (filter) => {
 
 filterButtons.forEach((button, buttonIndex) => {
   button.addEventListener("click", () => {
+    isMobileExpanded = false;
     applyFilter(button.dataset.filter);
   });
 
@@ -85,6 +103,7 @@ filterButtons.forEach((button, buttonIndex) => {
     const nextIndex =
       (buttonIndex + direction + filterButtons.length) % filterButtons.length;
     filterButtons[nextIndex].focus();
+    isMobileExpanded = false;
     applyFilter(filterButtons[nextIndex].dataset.filter);
   });
 });
@@ -94,8 +113,16 @@ applyFilter(activeFilter);
 window.addEventListener("resize", () => {
   window.clearTimeout(resizeTimer);
   resizeTimer = window.setTimeout(() => {
-    if (currentColumnCount !== getColumnCount()) applyFilter(activeFilter);
+    if (currentColumnCount !== getColumnCount()) {
+      isMobileExpanded = false;
+      applyFilter(activeFilter);
+    }
   }, 140);
+});
+
+viewMoreButton?.addEventListener("click", () => {
+  isMobileExpanded = true;
+  applyFilter(activeFilter);
 });
 
 mobileMenuToggle?.addEventListener("click", () => {
